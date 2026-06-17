@@ -1,0 +1,159 @@
+/* =========================
+   MANAGE STUDENTS PAGE
+========================= */
+
+.manage-students-page {
+  max-width: 900px;              /* ❌ full width nahi */
+  margin: 50px auto;
+  padding: 24px;
+}
+
+.manage-students-page h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 28px;
+  color: #1f2937;
+  text-align: center;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.students-table {
+  width: 100%;
+  table-layout: fixed;           /* ✅ equal columns */
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+  animation: fadeInUp 0.5s ease;
+}
+
+.students-table thead {
+  background: #f8fafc;
+}
+
+.students-table th,
+.students-table td {
+  padding: 16px 18px;
+  text-align: left;
+}
+
+/* ✅ Equal column widths */
+.students-table th:nth-child(1),
+.students-table td:nth-child(1) {
+  width: 33.33%;
+}
+
+.students-table th:nth-child(2),
+.students-table td:nth-child(2) {
+  width: 33.33%;
+}
+
+.students-table th:nth-child(3),
+.students-table td:nth-child(3) {
+  width: 33.33%;
+  text-align: center;
+}
+
+/* Headings */
+.students-table th {
+  font-size: 13px;
+  font-weight: 700;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+/* Body text */
+.students-table td {
+  font-size: 15px;
+  color: #111827;
+}
+
+.students-table tbody tr {
+  border-top: 1px solid #e5e7eb;
+  transition: background 0.25s ease;
+}
+
+.students-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+/* =========================
+   DELETE BUTTON (ORANGE → RED)
+========================= */
+
+.delete-btn {
+  background: linear-gradient(135deg, #ffb020, #ff9800);
+  color: #000000;             
+  border: none;
+
+  padding: 8px 18px;
+  min-width: 90px;
+  height: 36px;
+
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.2s ease;
+}
+
+/* 🔥 Hover → RED */
+.delete-btn:hover {
+  background: linear-gradient(135deg, #ff5252, #e03131);
+  color: #000000;             
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* 🔘 Click */
+.delete-btn:active {
+  transform: scale(0.96);
+  box-shadow: 0 6px 14px rgba(224, 49, 49, 0.35);
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.no-students {
+  text-align: center;
+  padding: 40px;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  color: #000 !important;          /* 🔥 TEXT VISIBLE */
+  background: #ffffff !important;  /* 🔥 WHITE BG */
+}
+
+.feedback-form input::placeholder,
+.feedback-form textarea::placeholder {
+  color: #777;
+}

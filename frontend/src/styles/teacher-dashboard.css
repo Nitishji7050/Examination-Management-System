@@ -1,0 +1,319 @@
+/* ===============================
+   RESET + BASE
+=============================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f7f9fc;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Ubuntu, sans-serif;
+  color: #1f2937;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* ===============================
+   MAIN WRAPPER
+=============================== */
+.teacher-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 16px 60px;
+}
+
+/* ===============================
+   HEADER
+=============================== */
+.teacher-dashboard .dashboard-header {
+  position: relative;
+  background: #ffffff;
+  border-bottom: 1px solid #eaeaea;
+  padding: 18px 16px 22px;
+  margin-bottom: 28px;
+}
+
+/* Center title */
+.teacher-dashboard .dashboard-header h1 {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Right user block */
+.teacher-dashboard .header-right {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: right;
+}
+
+.teacher-dashboard .user-name {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+/* Logout button */
+.teacher-dashboard .secondary-btn {
+  background: linear-gradient(135deg, #6fd3de, #22b8cf);
+  color: #ffffff;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 14px;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.teacher-dashboard .secondary-btn:hover {
+  opacity: 0.9;
+}
+
+/* ===============================
+   ACTION BAR
+=============================== */
+.teacher-dashboard .dashboard-actions {
+  margin: 20px 0 36px;
+}
+
+.teacher-dashboard .primary-btn {
+  background: linear-gradient(135deg, #6fd3de, #22b8cf);
+  color: #ffffff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(34, 184, 207, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.teacher-dashboard .primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(34, 184, 207, 0.45);
+}
+
+/* ===============================
+   CARDS GRID (🔥 FIXED WIDTH ISSUE)
+=============================== */
+.teacher-dashboard .exam-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
+  gap: 28px;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ===============================
+   CARD (🔥 COMPACT)
+=============================== */
+.teacher-dashboard .exam-card {
+  width: 100%;
+  max-width: 320px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 22px 20px 24px;
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: fadeUp 0.4s ease both;
+  cursor: pointer;
+}
+
+.teacher-dashboard .exam-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.14);
+}
+
+.teacher-dashboard .exam-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.teacher-dashboard .exam-audience {
+  display: inline-block;
+  background: #f1f5f9;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+  color: #374151;
+}
+
+.teacher-dashboard .exam-description {
+  font-size: 13px;
+  color: #4b5563;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.teacher-dashboard .exam-meta {
+  font-size: 12px;
+  color: #6b7280;
+  background: #f9fafb;
+  padding: 5px 10px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+/* ===============================
+   EMPTY / LOADING
+=============================== */
+.teacher-dashboard .loading,
+.teacher-dashboard .no-exams-message {
+  text-align: center;
+  padding: 40px;
+  color: #6b7280;
+}
+
+/* =========================
+   DASHBOARD ACTION BUTTONS
+========================= */
+
+.dashboard-actions {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+/* Primary already hai (Create Exam) */
+
+/* Manage Students Button */
+#manage-students-btn {
+  background: #f3f4f6;
+  color: #111827;
+  border: 1px solid #d1d5db;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+#manage-students-btn:hover {
+  background: #e5e7eb;
+  border-color: #9ca3af;
+}
+
+/* Create New Exam Button */
+.primary-btn {
+  background: linear-gradient(135deg, #3bc9db, #22b8cf);
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(34, 184, 207, 0.35);
+  transition: box-shadow 0.25s ease; /* ❌ color change disabled */
+}
+
+.primary-btn:hover {
+  box-shadow: 0 10px 22px rgba(34, 184, 207, 0.45);
+}
+
+/* Manage Students Button (same color, hover locked) */
+#manage-students-btn,
+#manage-students-btn:hover,
+#manage-students-btn:focus,
+#manage-students-btn:active {
+  background: linear-gradient(135deg, #3bc9db, #22b8cf);
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(34, 184, 207, 0.35);
+  transform: none;
+  opacity: 1;
+}
+
+
+
+/* =========================
+   FIX: Stop Create Exam Button Stretching
+========================= */
+#create-exam-btn {
+  flex: 0 0 auto;   
+  width: auto;      
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 6px;
+}
+
+/* ===============================
+   ANIMATION
+=============================== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   TABLET
+=============================== */
+@media (max-width: 992px) {
+  .teacher-dashboard .dashboard-header h1 {
+    font-size: 22px;
+  }
+}
+
+/* ===============================
+   MOBILE
+=============================== */
+@media (max-width: 768px) {
+  .teacher-dashboard .dashboard-header {
+    padding: 16px;
+  }
+
+  .teacher-dashboard .dashboard-header h1 {
+    font-size: 20px;
+  }
+
+  .teacher-dashboard .header-right {
+    position: static;
+    transform: none;
+    margin-top: 12px;
+    text-align: center;
+  }
+
+  .teacher-dashboard .dashboard-actions {
+    text-align: center;
+  }
+
+  .teacher-dashboard .exam-cards-container {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
+
+/* ===============================
+   EXTRA SMALL
+=============================== */
+@media (max-width: 400px) {
+  .teacher-dashboard .dashboard-header h1 {
+    font-size: 18px;
+  }
+
+  .teacher-dashboard .primary-btn {
+    width: 100%;
+  }
+}

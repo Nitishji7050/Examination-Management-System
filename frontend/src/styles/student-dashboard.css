@@ -1,0 +1,377 @@
+/* ===============================
+   RESET + BASE
+=============================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f7f9fc;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Ubuntu, sans-serif;
+  color: #1f2937;
+  overflow-x: hidden;
+}
+
+/* ===============================
+   DASHBOARD WRAPPER
+=============================== */
+.dashboard,
+.student-dashboard {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ===============================
+   HEADER
+=============================== */
+.dashboard-header {
+  position: relative;
+  background: #ffffff;
+  border-bottom: 1px solid #eaeaea;
+  padding: 18px 32px;
+}
+
+.dashboard-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.header-user {
+  position: absolute;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: right;
+}
+
+.user-name {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #374151;
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, #6fd3de, #22b8cf);
+  border: none;
+  color: #ffffff;
+  padding: 6px 16px;
+  font-size: 13px;
+  border-radius: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.logout-btn:hover {
+  opacity: 0.9;
+}
+
+/* ===============================
+   CONTENT HEADER
+=============================== */
+.dashboard-content-header {
+  text-align: center;
+  margin: 40px 0 32px;
+  padding: 0 16px;
+}
+
+.dashboard-content-header h1,
+.dashboard-content-header h2 {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.dashboard-content-header p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* ===============================
+   EXAM CARDS GRID
+=============================== */
+.exam-cards {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  padding: 0 24px 60px;
+}
+
+/* ===============================
+   EXAM CARD
+=============================== */
+.exam-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 28px 24px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.exam-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+.exam-card h2,
+.exam-card h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #111827;
+}
+
+.exam-card p {
+  font-size: 14px;
+  color: #374151;
+  margin-top: 6px;
+}
+
+/* ===============================
+   🔥 FIXED SCORE CIRCLE
+=============================== */
+.score-circle {
+  width: 96px;              /* ⬅ thoda bada */
+  height: 96px;
+  min-width: 96px;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;          /* ⬅ better fit */
+  font-weight: 700;
+  line-height: 1;           /* ⬅ vertical cut fix */
+  letter-spacing: 0.5px;   /* ⬅ clean look */
+  white-space: nowrap;     /* ⬅ text break nahi hoga */
+
+  color: #ffffff;
+}
+
+/* Score Colors */
+.score-circle.excellent {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+.score-circle.good {
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+}
+.score-circle.average {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+.score-circle.poor {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+/* ===============================
+   EMPTY / LOADING
+=============================== */
+.empty-state,
+.loading {
+  text-align: center;
+  padding: 80px 20px;
+  color: #6b7280;
+}
+
+/* =========================
+   FEEDBACK BUTTON
+========================= */
+.feedback-btn {
+  position: fixed;
+  right: 30px;
+  bottom: 40px;
+  background: linear-gradient(135deg, #00f2fe, #00f2fe);
+  color: #fff;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.feedback-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================
+   FEEDBACK MODAL
+========================= */
+.feedback-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.feedback-modal.hidden {
+  display: none;
+}
+
+.feedback-box {
+  background: #ffffff;
+  padding: 24px;
+  width: 380px;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.feedback-box h3 {
+  margin-bottom: 14px;
+}
+
+.feedback-box textarea {
+  width: 100%;
+  height: 120px;
+  padding: 10px;
+  resize: none;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.feedback-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.submit-btn {
+  background: #22c55e;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.feedback-action {
+  display: flex;
+  justify-content: flex-end;
+  margin: 30px 40px 0 0;
+}
+
+.feedback-action .primary-btn {
+  background: linear-gradient(135deg, #00f2fe, #00f2fe);
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.feedback-action .primary-btn:hover {
+  transform: translateY(-2px);
+}
+.student-actions {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.student-actions .primary-btn {
+  padding: 10px 22px;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ===============================
+   RESPONSIVE – TABLET
+=============================== */
+@media (max-width: 992px) {
+  .dashboard-title {
+    font-size: 22px;
+  }
+
+  .exam-cards {
+    padding: 0 20px 50px;
+  }
+}
+
+
+
+#give-feedback-btn {
+  width: auto;          
+  flex: 0 0 auto;       
+  padding: 8px 16px;    
+  font-size: 13px;
+  border-radius: 6px;
+}
+
+/* ===============================
+   RESPONSIVE – MOBILE
+=============================== */
+@media (max-width: 768px) {
+  .dashboard-header {
+    padding: 16px;
+  }
+
+  .dashboard-title {
+    font-size: 20px;
+  }
+
+  .header-user {
+    position: static;
+    transform: none;
+    margin-top: 12px;
+    text-align: center;
+  }
+
+  .logout-btn {
+    margin-top: 4px;
+  }
+
+  .dashboard-content-header {
+    margin: 28px 0 24px;
+  }
+
+  .dashboard-content-header h1,
+  .dashboard-content-header h2 {
+    font-size: 20px;
+  }
+
+  .exam-cards {
+    grid-template-columns: 1fr;
+    padding: 0 16px 40px;
+  }
+}
+
+/* ===============================
+   EXTRA SMALL DEVICES
+=============================== */
+@media (max-width: 400px) {
+  .dashboard-title {
+    font-size: 18px;
+  }
+
+  .score-circle {
+    width: 88px;
+    height: 88px;
+    font-size: 18px;
+  }
+}
